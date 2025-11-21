@@ -13,8 +13,10 @@ if (!file.exists(dat_location)) {
         unzip(zipFile)
 }
 
+
 features <- fread(file=file.path(dat_location, "features.txt"), col.names = c("index", "featureName"))
 activities <- fread(file=file.path(dat_location, "activity_labels.txt"), col.names = c("activityId", "activityLabel"))
+
 
 features_Index <- grep("mean\\(\\)|std\\(\\)", features$featureName)
 features_Names <- features$featureName[features_Index]
